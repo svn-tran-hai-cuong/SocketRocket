@@ -19,6 +19,7 @@ let package = Package(
         .target(
             name: "SocketRocket",
             path: "SocketRocket",
+            sources: ["SocketRocket.h"],
             cSettings: [
                 .headerSearchPath("Internal/**"),
             ]),
