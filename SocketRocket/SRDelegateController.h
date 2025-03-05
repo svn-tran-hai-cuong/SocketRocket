@@ -9,6 +9,9 @@
 
 #import <Foundation/Foundation.h>
 
+#if SWIFT_PACKAGE
+#import "SRWebSocket.h"
+#else
 #import <SocketRocket/SRWebSocket.h>
 
 NS_ASSUME_NONNULL_BEGIN

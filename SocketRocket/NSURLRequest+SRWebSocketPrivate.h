@@ -7,6 +7,9 @@
 // of patent rights can be found in the PATENTS file in the same directory.
 //
 
+#if SWIFT_PACKAGE
+#import "NSURLRequest+SRWebSocket.h"
+#else
 #import <SocketRocket/NSURLRequest+SRWebSocket.h>
 
 // Empty function that force links the object file for the category.

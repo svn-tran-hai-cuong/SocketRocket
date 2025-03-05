@@ -9,6 +9,9 @@
 
 #import <Foundation/Foundation.h>
 
+#if SWIFT_PACKAGE
+#import "SRSecurityPolicy.h"
+#else
 #import <SocketRocket/SRSecurityPolicy.h>
 
 NS_ASSUME_NONNULL_BEGIN
