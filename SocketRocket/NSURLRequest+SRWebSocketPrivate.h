@@ -11,6 +11,7 @@
 #import "NSURLRequest+SRWebSocket.h"
 #else
 #import <SocketRocket/NSURLRequest+SRWebSocket.h>
+#endif
 
 // Empty function that force links the object file for the category.
 extern void import_NSURLRequest_SRWebSocket(void);

@@ -13,6 +13,7 @@
 #import "SRWebSocket.h"
 #else
 #import <SocketRocket/SRWebSocket.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -13,6 +13,7 @@
 #import "SRSecurityPolicy.h"
 #else
 #import <SocketRocket/SRSecurityPolicy.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
