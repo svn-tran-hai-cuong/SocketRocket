@@ -7,7 +7,11 @@
 // of patent rights can be found in the PATENTS file in the same directory.
 //
 
-#import <SocketRocket/NSRunLoop+SRWebSocket.h>
+#if SWIFT_PACKAGE
+#import "NSRunLoop+SRWebSocket.h"
+#else
+#import <SocketRocket/NSRunLoop+SRWebSocket.
+#endif
 
 // Empty function that force links the object file for the category.
 extern void import_NSRunLoop_SRWebSocket(void);
