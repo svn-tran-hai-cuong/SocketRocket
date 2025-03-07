@@ -9,7 +9,7 @@
 // of patent rights can be found in the PATENTS file in the same directory.
 //
 
-#import <SocketRocket/include/NSRunLoop+SRWebSocket.h>
-#import <SocketRocket/include/NSURLRequest+SRWebSocket.h>
-#import <SocketRocket/include/SRSecurityPolicy.h>
-#import <SocketRocket/include/SRWebSocket.h>
+#import <NSRunLoop+SRWebSocket.h>
+#import <NSURLRequest+SRWebSocket.h>
+#import <SRSecurityPolicy.h>
+#import <SRWebSocket.h>

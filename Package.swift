@@ -19,7 +19,7 @@ let package = Package(
             exclude: ["Info.plist"], // Loại bỏ file không cần thiết
             publicHeadersPath: "include",
             cSettings: [
-                .headerSearchPath("."),
+                .headerSearchPath("include"),
                 .define("SR_LOG_ENABLED", to: "1")
             ]
         )
