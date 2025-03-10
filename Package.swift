@@ -9,6 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "SocketRocket",
+            type: .dynamic,
             targets: ["SocketRocket"]
         ),
     ],
