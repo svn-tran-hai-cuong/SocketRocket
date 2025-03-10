@@ -40,7 +40,9 @@ let package = Package(
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("include"),
-                .define("SR_LOG_ENABLED", to: "1")
+                .define("TARGET_OS_IOS", to: "1"),
+                .define("TARGET_OS_SIMULATOR", to: "1"),
+                .define("ARCH_X86_64", to: "1")
             ]
         )
     ]
