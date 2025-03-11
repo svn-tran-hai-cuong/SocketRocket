@@ -41,6 +41,8 @@ let package = Package(
                 .linkedFramework("SystemConfiguration")
             ]
         )
-    ]
+    ],
+    cLanguageStandard: .gnu11,
+    cxxLanguageStandard: .gnucxx20
 )
 
