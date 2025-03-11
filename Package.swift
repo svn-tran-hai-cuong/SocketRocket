@@ -35,10 +35,29 @@ let package = Package(
                 .define("GCC_PREPROCESSOR_DEFINITIONS", to: "DEBUG=1"), // Định nghĩa macro DEBUG
                 .define("ENABLE_NS_ASSERTIONS", to: "YES"), // Bật NSAssertions
                 .define("ENABLE_TESTABILITY", to: "YES"), // Hỗ trợ testability
-                .define("COPY_PHASE_STRIP", to: "NO")
+                .define("COPY_PHASE_STRIP", to: "NO"),
+                .define("ALWAYS_SEARCH_USER_PATHS", to: "NO"), // Không dùng tìm kiếm thư mục cũ
+                .define("ARCHS", to: "$(ARCHS_STANDARD)"), // Dùng kiến trúc tiêu chuẩn
+                .define("CLANG_ENABLE_MODULES", to: "YES"), // Cho phép import module
+                .define("CLANG_ENABLE_MODULE_DEBUGGING", to: "NO"), // Không debug module
+                .define("CLANG_ENABLE_OBJC_ARC", to: "YES"), // ARC cho Obj-C
+                .define("GCC_VERSION", to: "com.apple.compilers.llvm.clang.1_0"), // Dùng Clang
+                .define("DEAD_CODE_STRIPPING", to: "NO"), // Không xóa code không dùng
+                .define("DEBUG_INFORMATION_FORMAT", to: "dwarf-with-dsym"), // Định dạng debug symbol
+                .define("GCC_C_LANGUAGE_STANDARD", to: "gnu11"), // C chuẩn gnu11
+                .define("GCC_DYNAMIC_NO_PIC", to: "NO"), // Không dùng Position-Independent Code
+                .define("GCC_INLINES_ARE_PRIVATE_EXTERN", to: "YES"), // Inline functions là private
+                .define("GCC_NO_COMMON_BLOCKS", to: "YES"), // Không dùng common blocks
+                .define("GCC_SYMBOLS_PRIVATE_EXTERN", to: "NO") // Giữ symbol ở mức global
             ],
             cxxSettings: [.unsafeFlags(["-fno-objc-arc"]),
-                          .unsafeFlags(["-fsanitize-undefined-trap-on-error", "-fsanitize=undefined-trap"]) // CFLAGS
+                          .unsafeFlags(["-fsanitize-undefined-trap-on-error", "-fsanitize=undefined-trap"]), // CFLAGS
+                          .define("CLANG_CXX_LANGUAGE_STANDARD", to: "gnu++17"), // Chuẩn C++17
+                          .define("CLANG_CXX_LIBRARY", to: "libc++") // Dùng libc++
+            ],
+            swiftSettings: [
+                .unsafeFlags(["-Xfrontend", "-enable-testing"]), // Bật testability
+                .unsafeFlags(["-Xclang", "-analyze"]) // Bật static analyzer
             ],
             linkerSettings: [
                 .linkedFramework("CoreServices", .when(platforms: [.macOS])),
