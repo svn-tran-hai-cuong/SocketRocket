@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "SocketRocket",
-            type: .dynamic,
+            type: .static,
             targets: ["SocketRocket"]
         )
     ],
@@ -22,7 +22,8 @@ let package = Package(
             sources: ["."],
             publicHeadersPath: "include",
             cSettings: [
-                .headerSearchPath("include")
+                .headerSearchPath("include"),
+                .unsafeFlags(["-fembed-bitcode"], .when(platforms: [.iOS]))
             ],
             linkerSettings: [
                 .linkedFramework("CFNetwork", .when(platforms: [.iOS, .tvOS])),
