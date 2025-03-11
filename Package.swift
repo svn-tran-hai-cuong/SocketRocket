@@ -11,21 +11,18 @@ let package = Package(
     products: [
         .library(
             name: "SocketRocket",
+            type: .dynamic,
             targets: ["SocketRocket"]
         )
     ],
-    dependencies: [],
     targets: [
         .target(
             name: "SocketRocket",
-            dependencies: [],
             path: "SocketRocket",
-            exclude: [],
             sources: ["."],
             publicHeadersPath: "include",
             cSettings: [
-                .headerSearchPath("include"),
-                .define("USE_ICUCORE", to: "1")
+                .headerSearchPath("include")
             ],
             linkerSettings: [
                 .linkedFramework("CFNetwork", .when(platforms: [.iOS, .tvOS])),
