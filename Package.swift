@@ -24,7 +24,11 @@ let package = Package(
             cSettings: [
                 .headerSearchPath("include"),
                 .unsafeFlags(["-fembed-bitcode"], .when(platforms: [.iOS])),
-                .unsafeFlags(["-arch", "x86_64"], .when(platforms: [.iOS], configuration: .debug))
+                .unsafeFlags(["-arch", "x86_64"], .when(platforms: [.iOS], configuration: .debug)),
+                .define("DEFINES_MODULE", to: "YES"), // Tương đương với DEFINES_MODULE = YES
+                .define("CLANG_MODULES_AUTOLINK", to: "NO"), // Disable clang modules autolink
+                .define("DEAD_CODE_STRIPPING", to: "NO"), // Không bỏ mã không dùng
+                .define("GCC_DYNAMIC_NO_PIC", to: "NO")
             ],
             cxxSettings: [.unsafeFlags(["-fno-objc-arc"])],
             linkerSettings: [
@@ -40,7 +44,8 @@ let package = Package(
                 .linkedFramework("CFNetwork"),
                 .linkedFramework("Foundation"),
                 .linkedFramework("SystemConfiguration"),
-                .unsafeFlags(["-Wl,-rpath,@executable_path/Frameworks", "-Wl,-rpath,@loader_path/Frameworks"])
+                .unsafeFlags(["-Wl,-rpath,@executable_path/Frameworks", "-Wl,-rpath,@loader_path/Frameworks"]),
+                .unsafeFlags(["-Wl,-rpath,@executable_path/Frameworks", "-Wl,-rpath,@loader_path/Frameworks"]), // Tương đương INSTALL_PATH = @rpath
             ]
         )
     ],
