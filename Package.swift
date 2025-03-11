@@ -23,7 +23,8 @@ let package = Package(
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("include"),
-                .unsafeFlags(["-fembed-bitcode"], .when(platforms: [.iOS]))
+                .unsafeFlags(["-fembed-bitcode"], .when(platforms: [.iOS])),
+                .unsafeFlags(["-arch", "x86_64"], .when(platforms: [.iOS], configuration: .debug))
             ],
             cxxSettings: [.unsafeFlags(["-fno-objc-arc"])],
             linkerSettings: [
