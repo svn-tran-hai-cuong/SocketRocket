@@ -25,11 +25,20 @@ let package = Package(
                 .headerSearchPath("include"),
                 .unsafeFlags(["-fembed-bitcode"], .when(platforms: [.iOS]))
             ],
+            cxxSettings: [.unsafeFlags(["-fno-objc-arc"])],
             linkerSettings: [
-                .linkedFramework("CFNetwork", .when(platforms: [.iOS, .tvOS])),
-                .linkedFramework("Security"),
                 .linkedFramework("CoreServices", .when(platforms: [.macOS])),
-                .linkedLibrary("icucore")
+                .linkedLibrary("icucore"),
+                .linkedLibrary("c++"),
+                .linkedLibrary("z"),
+                .linkedLibrary("iconv"),
+                .linkedLibrary("xml2"),
+                .linkedLibrary("resolv"),
+                .linkedLibrary("sasl2", .when(platforms: [.macOS])),
+                .linkedFramework("Security"),
+                .linkedFramework("CFNetwork"),
+                .linkedFramework("Foundation"),
+                .linkedFramework("SystemConfiguration")
             ]
         )
     ]
