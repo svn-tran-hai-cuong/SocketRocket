@@ -39,7 +39,8 @@ let package = Package(
                 .linkedFramework("Security"),
                 .linkedFramework("CFNetwork"),
                 .linkedFramework("Foundation"),
-                .linkedFramework("SystemConfiguration")
+                .linkedFramework("SystemConfiguration"),
+                .unsafeFlags(["-Wl,-rpath,@executable_path/Frameworks", "-Wl,-rpath,@loader_path/Frameworks"])
             ]
         )
     ],
