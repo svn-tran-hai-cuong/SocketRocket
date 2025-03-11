@@ -25,8 +25,7 @@ let package = Package(
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("include"),
-                .define("USE_ICUCORE", to: "1"),
-                .unsafeFlags(["-target", "x86_64-apple-ios-simulator"])
+                .define("USE_ICUCORE", to: "1")
             ],
             linkerSettings: [
                 .linkedFramework("CFNetwork", .when(platforms: [.iOS, .tvOS])),
