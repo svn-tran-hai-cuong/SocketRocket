@@ -21,6 +21,7 @@ let package = Package(
             dependencies: [],
             path: "SocketRocket",
             exclude: [],
+            sources: ["."],
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("include"),
